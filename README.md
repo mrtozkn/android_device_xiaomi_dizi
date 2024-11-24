@@ -27,4 +27,4 @@ Release date was April-May 2024.
 
 ## Device picture
 
-![Xiaomi Poco Pad / Redmi Pad Pro](https://resim.epey.com/941057/m_poco-pad-11.jpg "Xiaomi Poco Pad / Redmi Pad Pro")
+![Xiaomi Poco Pad / Redmi Pad Pro](https://i02.appmifile.com/mi-com-product/fly-birds/poco-pad/PC/261ad052dbd53e86f7f3972c4a2f9ab3.png?f=webp "Xiaomi Poco Pad / Redmi Pad Pro")
