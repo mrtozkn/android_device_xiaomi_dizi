@@ -2,7 +2,7 @@
 Poco Pad Device Sources (Experimental)
 
 
-Device configuration for Xiaomi Mi Note 3
+Device configuration for Xiaomi Poco Pad / Redmi Pad Pro
 ==============
 
 The Xiaomi Poco Pad / Redmi Pad Pro (codenamed _"dizi"_) are mid-end tablets from Xiaomi.
