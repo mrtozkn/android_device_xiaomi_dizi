@@ -163,7 +163,6 @@ PRODUCT_PACKAGES += \
     SystemUIOverlayDizi
 
 # API levels
-BOARD_API_LEVEL := 31
 PRODUCT_SHIPPING_API_LEVEL := 34
 
 # Soong namespaces

@@ -7,26 +7,37 @@
 
 DEVICE_PATH := device/xiaomi/dizi
 
-# Board
-TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
+# Architecture
+TARGET_ARCH := arm64
+TARGET_ARCH_VARIANT := armv8-a
+TARGET_CPU_ABI := arm64-v8a
+TARGET_CPU_ABI2 :=
+TARGET_CPU_VARIANT := generic
+TARGET_CPU_VARIANT_RUNTIME := kryo300
+
+TARGET_2ND_ARCH := arm
+TARGET_2ND_ARCH_VARIANT := armv7-a-neon
+TARGET_2ND_CPU_ABI := armeabi-v7a
+TARGET_2ND_CPU_ABI2 := armeabi
+TARGET_2ND_CPU_VARIANT := generic
+TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a75
 
 # Display
 TARGET_SCREEN_DENSITY := 320
 
 #Kernel
 DIZI_PREBUILT := device/xiaomi/dizi-prebuilt
+TARGET_FORCE_PREBUILT_KERNEL := true
 
 ifeq ($(TARGET_USE_PREBUILT_KERNEL),true)
 TARGET_NO_KERNEL_OVERRIDE := true
-
 PRODUCT_COPY_FILES += \
     $(DIZI_PREBUILT)/Image:kernel \
     $(DIZI_PREBUILT)/dtb.img:dtb.img
-
 TARGET_KERNEL_CONFIG += $(DIZI_PREBUILT)/dizi.config
-
+BOARD_KERNEL_CMDLINE := video=vfb:640x400,bpp=32,memsize=3072000 mtdoops.fingerprint=dizi_global:12/V816.0.7.0.UNSMIXM:user swinfo.fingerprint=dizi_global:12/V816.0.7.0.UNSMIXM:user bootconfig
+BOARD_KERNEL_PAGESIZE := 4096
 BOARD_PREBUILT_DTBOIMAGE := $(DIZI_PREBUILT)/dtbo.img
-
 BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DIZI_PREBUILT)/modules/modules.load))
 BOARD_VENDOR_KERNEL_MODULES += $(wildcard $(DIZI_PREBUILT)/modules/*.ko)
 endif
@@ -100,10 +111,12 @@ BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
 # Manifest
 DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
-
+DEVICE_MATRIX_FILE := hardware/qcom-caf/common/compatibility_matrix.xml
 # VINTF
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
-    $(DEVICE_PATH)/interfaces/peripherals/1.0/default/device_framework_matrix.xml
+    $(DEVICE_PATH)/interfaces/peripherals/1.0/default/device_framework_matrix.xml \
+    hardware/xiaomi/vintf/xiaomi_framework_compatibility_matrix.xml \
+    vendor/lineage/config/device_framework_matrix.xml
 
 #Inherit from the proprietary version
 include vendor/xiaomi/dizi/BoardConfigVendor.mk
