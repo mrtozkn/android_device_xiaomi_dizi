@@ -1,0 +1,7 @@
+debug.game.video.support=true
+ro.miui.audio.karaoke.suppot.lowlatency=true
+ro.vendor.audio.camera.loopback.support=false
+ro.vendor.audio.karaoke.enable=true
+ro.vendor.audio.onetrack.audio_track_message.level=1
+ro.vendor.qti.va_odm.support=1
+vendor.display.force_tonemapping=1
