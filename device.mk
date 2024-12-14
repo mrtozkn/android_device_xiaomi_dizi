@@ -169,7 +169,9 @@ PRODUCT_SHIPPING_API_LEVEL := 34
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/google/interfaces \
-    hardware/google/pixel
+    hardware/google/pixel \
+    hardware/xiaomi \
+    hardware/qcom-caf/common
 
 # Wlan fix for stock kernel - Bakılacak 
 ifeq ($(TARGET_USE_PREBUILT_KERNEL),true)
