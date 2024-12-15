@@ -1,1 +1,2 @@
+type vendor_cnd, domain;
 allow vendor_cnd vendor_diag_device:chr_file rw_file_perms;

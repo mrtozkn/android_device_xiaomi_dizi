@@ -1,3 +1,5 @@
+type vendor_hvdcp, domain;
+type vendor_sysfs_battery_supply, sysfs_type;
 allow vendor_hvdcp vendor_sysfs_battery_supply:dir  r_dir_perms;
 allow vendor_hvdcp vendor_sysfs_battery_supply:file r_file_perms;
 

@@ -25,19 +25,18 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a75
 # Display
 TARGET_SCREEN_DENSITY := 320
 
-#Kernel
-DIZI_PREBUILT := device/xiaomi/dizi-prebuilt
-TARGET_FORCE_PREBUILT_KERNEL := true
+# Kernel - prebuilt
 
-ifeq ($(TARGET_USE_PREBUILT_KERNEL),true)
-TARGET_NO_KERNEL_OVERRIDE := true
-PRODUCT_COPY_FILES += \
-    $(DIZI_PREBUILT)/Image:kernel \
-    $(DIZI_PREBUILT)/dtb.img:dtb.img
-TARGET_KERNEL_CONFIG += $(DIZI_PREBUILT)/dizi.config
-BOARD_KERNEL_CMDLINE := video=vfb:640x400,bpp=32,memsize=3072000 mtdoops.fingerprint=dizi_global:12/V816.0.7.0.UNSMIXM:user swinfo.fingerprint=dizi_global:12/V816.0.7.0.UNSMIXM:user bootconfig
-BOARD_KERNEL_PAGESIZE := 4096
+DIZI_PREBUILT := device/xiaomi/dizi-prebuilt
+
+TARGET_FORCE_PREBUILT_KERNEL := true
+ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
+TARGET_PREBUILT_KERNEL := $(DIZI_PREBUILT)/kernel
+TARGET_PREBUILT_DTB := $(DIZI_PREBUILT)/dtb.img
+BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
+BOARD_INCLUDE_DTB_IN_BOOTIMG :=
 BOARD_PREBUILT_DTBOIMAGE := $(DIZI_PREBUILT)/dtbo.img
+BOARD_KERNEL_SEPARATED_DTBO :=
 BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DIZI_PREBUILT)/modules/modules.load))
 BOARD_VENDOR_KERNEL_MODULES += $(wildcard $(DIZI_PREBUILT)/modules/*.ko)
 endif
@@ -110,7 +109,7 @@ SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
 # Manifest
-DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 DEVICE_MATRIX_FILE := hardware/qcom-caf/common/compatibility_matrix.xml
 # VINTF
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
