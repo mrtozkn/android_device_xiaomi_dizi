@@ -3,7 +3,7 @@
 #include <vendor/xiaomi_elish/peripherals/1.0/IPeripherals.h>
 
 namespace vendor {
-namespace xiaomi_elish {
+namespace xiaomi_dizi {
 namespace peripherals {
 namespace V1_0 {
 namespace implementation {
@@ -40,5 +40,5 @@ private:
 }  // namespace implementation
 }  // namespace V1_0
 }  // namespace peripherals
-}  // namespace xiaomi_elish
+}  // namespace xiaomi_dizi
 }  // namespace vendor

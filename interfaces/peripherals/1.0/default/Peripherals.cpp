@@ -5,7 +5,7 @@
 #include <sys/ioctl.h>
 
 namespace vendor {
-namespace xiaomi_elish {
+namespace xiaomi_dizi {
 namespace peripherals {
 namespace V1_0 {
 namespace implementation {
@@ -94,5 +94,5 @@ Return<bool> Peripherals::isKeyboardConnected() {
 }  // namespace implementation
 }  // namespace V1_0
 }  // namespace peripherals
-}  // namespace xiaomi_elish
+}  // namespace xiaomi_dizi
 }  // namespace vendor
