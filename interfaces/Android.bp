@@ -1,4 +1,4 @@
 hidl_package_root {
-    name: "vendor.xiaomi_elish",
-    path: "device/xiaomi/elish/interfaces",
+    name: "vendor.xiaomi_dizi",
+    path: "device/xiaomi/dizi/interfaces",
 }

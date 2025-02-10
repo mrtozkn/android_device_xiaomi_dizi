@@ -1,4 +1,4 @@
-package vendor.xiaomi_elish.peripherals@1.0;
+package vendor.xiaomi_dizi.peripherals@1.0;
 
 interface IPeripherals {
     isStylusEnabled() generates (bool enabled);
