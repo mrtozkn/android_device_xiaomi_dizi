@@ -93,8 +93,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     MiPadParts
 
-# PRODUCT_PACKAGES += \ Bakılacak
-#    vendor.xiaomi_elish.peripherals@1.0-service.default
+#Peripherals
+PRODUCT_PACKAGES += \
+    vendor.xiaomi_dizi.peripherals@1.0
 
 # Remove unused packages
 PRODUCT_PACKAGES += \
@@ -171,7 +172,8 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/interfaces \
     hardware/google/pixel \
     hardware/xiaomi \
-    hardware/qcom-caf/common
+    hardware/qcom-caf/common \
+    hardware/qcom-caf/wlan
 
 # Wlan fix for stock kernel - Bakılacak 
 ifeq ($(TARGET_USE_PREBUILT_KERNEL),true)
@@ -180,5 +182,5 @@ PRODUCT_PACKAGES += \
     firmware_qca6390_wlan_mac.bin_symlink
 endif
 
-# Inherit from vendor blobs - Bakılacak
-# $(call inherit-product, vendor/xiaomi/elish/elish-vendor.mk)
+# Inherit from vendor blobs
+$(call inherit-product, vendor/xiaomi/dizi/dizi-vendor.mk)
