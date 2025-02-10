@@ -1,2 +1,0 @@
-type padsettings_app, domain;
-typeattribute padsettings_app mlstrustedsubject;
